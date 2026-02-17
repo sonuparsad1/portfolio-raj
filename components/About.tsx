@@ -19,7 +19,7 @@ const About: React.FC = () => {
   "degree": "B.Tech",
   "major": "Cyber Security",
   "status": "Open to Work",
-  "location": "India",
+  "location": "Jhansi, UP",
   "interests": [
     "Ethical Hacking",
     "Cloud Security",

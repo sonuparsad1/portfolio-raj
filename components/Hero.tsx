@@ -2,13 +2,15 @@ import React from 'react';
 import { Terminal, Lock, ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero: React.FC = () => {
+  const mailToLink = "mailto:rhansh33@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Raj%2C%0A%0AI%20visited%20your%20portfolio%20and%20wanted%20to%20connect%20regarding%20an%20opportunity.";
+
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center relative pt-20 pb-10">
+    <section id="home" className="min-h-[calc(100vh-5rem)] flex flex-col items-center relative pb-10">
       
-      <div className="text-center z-10 max-w-4xl px-4 flex flex-col items-center">
+      <div className="flex-1 flex flex-col justify-center items-center text-center z-10 max-w-4xl px-4 w-full">
         
         {/* Profile Image */}
-        <div className="relative mb-8 group">
+        <div className="relative mb-8 group mt-8 md:mt-0">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyber-green to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
             {/* Note: Ensure a file named 'profile.jpg' exists in your public/root folder */}
             <img 
@@ -63,13 +65,13 @@ const Hero: React.FC = () => {
           <a href="https://www.linkedin.com/in/rajhansh94/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">
             <Linkedin size={24} />
           </a>
-          <a href="mailto:rhansh33@gmail.com" className="hover:text-red-400 transition-colors hover:scale-110 transform duration-200">
+          <a href={mailToLink} className="hover:text-red-400 transition-colors hover:scale-110 transform duration-200">
             <Mail size={24} />
           </a>
         </div>
       </div>
 
-      <div className="absolute bottom-10 animate-bounce text-cyber-green/50">
+      <div className="pt-12 pb-4 animate-bounce text-cyber-green/50 z-10">
         <ChevronDown size={32} />
       </div>
     </section>

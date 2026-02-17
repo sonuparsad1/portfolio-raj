@@ -79,7 +79,8 @@ const Navbar: React.FC = () => {
               </a>
             ))}
             <a 
-              href="#"
+              href="/resume.pdf"
+              target="_blank"
               className="text-cyber-green block px-3 py-2 rounded-md text-base font-medium font-mono border border-cyber-green mt-4 text-center"
             >
               Download CV

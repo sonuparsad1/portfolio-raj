@@ -4,6 +4,8 @@ import { Send, MapPin, Mail, Phone } from 'lucide-react';
 const Contact: React.FC = () => {
   const [formState, setFormState] = useState({ name: '', email: '', message: '' });
 
+  const mailToLink = "mailto:rhansh33@gmail.com?subject=Portfolio%20Inquiry&body=Hi%20Raj%2C%0A%0AI%20visited%20your%20portfolio%20and%20wanted%20to%20connect%20regarding%20an%20opportunity.";
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Simulate form submission
@@ -30,7 +32,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-1">Location</h4>
-                <p className="text-gray-400">Bangalore, India</p>
+                <p className="text-gray-400">Jhansi, UP</p>
               </div>
             </div>
 
@@ -40,7 +42,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-1">Email</h4>
-                <a href="mailto:rhansh33@gmail.com" className="text-gray-400 hover:text-cyber-green transition-colors">
+                <a href={mailToLink} className="text-gray-400 hover:text-cyber-green transition-colors">
                   rhansh33@gmail.com
                 </a>
               </div>
@@ -52,7 +54,7 @@ const Contact: React.FC = () => {
               </div>
               <div>
                 <h4 className="text-white font-bold mb-1">Phone</h4>
-                <p className="text-gray-400">+91 98765 XXXXX</p>
+                <p className="text-gray-400">+91 91206 46010</p>
               </div>
             </div>
           </div>

@@ -46,6 +46,8 @@ Raj Hansh is a Cyber Security Professional with a B.Tech degree.
 Here is Raj's profile data to answer user queries:
 - **Name:** Raj Hansh
 - **Contact Email:** rhansh33@gmail.com
+- **Phone:** +91 91206 46010
+- **Location:** Jhansi, Uttar Pradesh (UP), India
 - **LinkedIn:** https://www.linkedin.com/in/rajhansh94/
 - **GitHub:** https://github.com/rajhansh23
 - **Education:** B.Tech in Computer Science & Engineering (Specialization in Cyber Security).
