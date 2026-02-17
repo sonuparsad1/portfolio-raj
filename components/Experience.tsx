@@ -8,7 +8,7 @@ const ExperienceSection: React.FC = () => {
       id: 1,
       title: "Summer Training in C Programming",
       company: "CSE Pathsala",
-      period: "June 2023 - July 2023",
+      period: "10 June 2025 - 28 July 2025",
       description: [
         "Mastered fundamental concepts of C programming, including pointers, structures, and file handling.",
         "Implemented data structures like linked lists, stacks, and queues from scratch to understand memory management.",
