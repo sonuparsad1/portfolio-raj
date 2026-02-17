@@ -12,14 +12,18 @@ const Hero: React.FC = () => {
         {/* Profile Image */}
         <div className="relative mb-8 group mt-8 md:mt-0">
             <div className="absolute -inset-1 bg-gradient-to-r from-cyber-green to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
-            {/* Note: Ensure a file named 'profile.jpg' exists in your public/root folder */}
+            {/* 
+              IMPORTANT: This looks for 'profile.jpg' in your public folder.
+              If the file is missing, it shows your initials (RH) instead of a random photo.
+            */}
             <img 
               src="/profile.jpg" 
               alt="Raj Hansh" 
               className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-cyber-dark ring-2 ring-cyber-green/50 shadow-2xl bg-cyber-gray"
               onError={(e) => {
                 const target = e.target as HTMLImageElement;
-                target.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop";
+                // Fallback to initials avatar if profile.jpg is missing
+                target.src = "https://ui-avatars.com/api/?name=Raj+Hansh&background=0d1117&color=00ff41&size=256&bold=true";
               }}
             />
         </div>
