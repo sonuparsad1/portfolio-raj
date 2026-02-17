@@ -1,5 +1,5 @@
 import React from 'react';
-import { Github, ExternalLink, FolderLock, UserCircle, Terminal } from 'lucide-react';
+import { Github, ExternalLink, UserCircle, Terminal, Cloud } from 'lucide-react';
 import { Project } from '../types';
 
 const Projects: React.FC = () => {
@@ -41,7 +41,11 @@ const Projects: React.FC = () => {
             <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
                {/* Abstract tech background */}
                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-400 via-gray-900 to-black"></div>
-               <Terminal className="text-gray-600 w-16 h-16 group-hover:text-cyber-green transition-colors duration-500 transform group-hover:scale-110" />
+               {project.id === 2 ? (
+                 <Cloud className="text-gray-600 w-16 h-16 group-hover:text-blue-400 transition-colors duration-500 transform group-hover:scale-110" />
+               ) : (
+                 <Terminal className="text-gray-600 w-16 h-16 group-hover:text-cyber-green transition-colors duration-500 transform group-hover:scale-110" />
+               )}
             </div>
             
             <div className="p-6 flex-1 flex flex-col">

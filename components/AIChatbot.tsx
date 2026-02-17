@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { MessageSquare, X, Send, Bot, User, Loader2, Sparkles } from 'lucide-react';
+import { MessageSquare, X, Send, Bot, Loader2, Sparkles } from 'lucide-react';
 import { createChatSession, sendMessageToGemini } from '../services/geminiService';
 import { ChatMessage } from '../types';
 
@@ -83,7 +83,7 @@ const AIChatbot: React.FC = () => {
 
       {/* Chat Window */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-80 md:w-96 bg-cyber-dark border border-cyber-green/30 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden animate-in slide-in-from-bottom-10 fade-in duration-300 h-[500px]">
+        <div className="fixed bottom-24 right-6 w-80 md:w-96 bg-cyber-dark border border-cyber-green/30 rounded-2xl shadow-2xl z-50 flex flex-col overflow-hidden animate-slide-up h-[500px]">
           {/* Header */}
           <div className="bg-gray-900 p-4 border-b border-gray-800 flex items-center gap-3">
             <div className="p-2 bg-cyber-green/20 rounded-full">

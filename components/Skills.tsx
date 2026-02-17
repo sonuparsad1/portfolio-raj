@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Globe, Database, Code, Shield, Cloud, Server, GitBranch } from 'lucide-react';
+import { Terminal, Code, Shield, Cloud } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const Skills: React.FC = () => {
@@ -12,7 +12,7 @@ const Skills: React.FC = () => {
     {
       title: "Tools & OS",
       icon: <Terminal className="w-6 h-6 text-yellow-400" />,
-      skills: ["Linux", "Git & GitHub"]
+      skills: ["Linux", "Git & GitHub", "Command Line Interface"]
     },
     {
       title: "Security & Networking",

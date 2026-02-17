@@ -1,17 +1,19 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
 // Safe access to process.env for browser environments where process might not be defined
+// This fixes Vercel/Vite build issues where process is undefined in client-side code
 const getApiKey = () => {
   try {
     return process.env.API_KEY || '';
   } catch (e) {
+    // If process is undefined, return empty string to prevent crash
     return '';
   }
 };
 
 const apiKey = getApiKey();
 
-// Fallback if no key is provided in environment
+// Initialize the client
 const ai = new GoogleGenAI({ apiKey });
 
 const RAJ_CONTEXT = `
@@ -54,6 +56,8 @@ export const createChatSession = (): Chat => {
 
 export const sendMessageToGemini = async (chat: Chat, message: string): Promise<string> => {
   try {
+    if (!apiKey) return "API Key not configured in environment.";
+    
     const result = await chat.sendMessage({ message });
     return result.text || "I received an empty response. Please try again.";
   } catch (error) {
