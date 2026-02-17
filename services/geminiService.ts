@@ -1,20 +1,43 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-// Safe access to process.env for browser environments where process might not be defined
-// This fixes Vercel/Vite build issues where process is undefined in client-side code
-const getApiKey = () => {
+// Robustly get API Key from various environment configurations (Vite, Next.js, Node, etc.)
+const getApiKey = (): string => {
   try {
-    return process.env.API_KEY || '';
+    // Check for Vite / Modern Frontend env
+    // @ts-ignore
+    if (typeof import.meta !== 'undefined' && import.meta.env) {
+      // @ts-ignore
+      const key = import.meta.env.VITE_API_KEY || import.meta.env.API_KEY;
+      if (key) return key;
+    }
   } catch (e) {
-    // If process is undefined, return empty string to prevent crash
-    return '';
+    // ignore
   }
+
+  try {
+    // Check for standard Node/Webpack process.env
+    // We check typeof process first to avoid ReferenceError in strict browser environments
+    if (typeof process !== 'undefined' && process.env) {
+      return process.env.API_KEY || '';
+    }
+  } catch (e) {
+    // ignore
+  }
+
+  return '';
 };
 
 const apiKey = getApiKey();
 
-// Initialize the client
-const ai = new GoogleGenAI({ apiKey });
+// Initialize the client safely
+// We provide a fallback or handle initialization to ensure the module doesn't crash 
+// if the key is missing during app boot.
+let ai: GoogleGenAI;
+try {
+  ai = new GoogleGenAI({ apiKey: apiKey || 'fallback-key-for-init' });
+} catch (e) {
+  console.error("Gemini Client Init Error:", e);
+}
 
 const RAJ_CONTEXT = `
 You are "CyberBot", the personal AI assistant for Raj Hansh's portfolio website. 
@@ -44,6 +67,9 @@ Here is Raj's profile data to answer user queries:
 `;
 
 export const createChatSession = (): Chat => {
+  if (!ai) {
+     throw new Error("AI Client not initialized");
+  }
   return ai.chats.create({
     model: 'gemini-3-flash-preview',
     config: {
@@ -56,7 +82,8 @@ export const createChatSession = (): Chat => {
 
 export const sendMessageToGemini = async (chat: Chat, message: string): Promise<string> => {
   try {
-    if (!apiKey) return "API Key not configured in environment.";
+    // Check if we have a real key before sending
+    if (!apiKey) return "API Key not configured. Please add VITE_API_KEY or API_KEY to your environment variables.";
     
     const result = await chat.sendMessage({ message });
     return result.text || "I received an empty response. Please try again.";
