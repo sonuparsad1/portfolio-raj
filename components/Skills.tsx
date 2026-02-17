@@ -1,5 +1,5 @@
 import React from 'react';
-import { Terminal, Globe, Database, Award, Lock, Code, Shield } from 'lucide-react';
+import { Terminal, Globe, Database, Code, Shield, Cloud, Server, GitBranch } from 'lucide-react';
 import { SkillCategory } from '../types';
 
 const Skills: React.FC = () => {
@@ -7,27 +7,22 @@ const Skills: React.FC = () => {
     {
       title: "Programming Languages",
       icon: <Code className="w-6 h-6 text-purple-400" />,
-      skills: ["Python", "C++", "JavaScript", "SQL", "Bash Scripting"]
+      skills: ["C++", "Java", "Python", "HTML & CSS", "JavaScript"]
     },
     {
-      title: "Security Tools",
-      icon: <Terminal className="w-6 h-6 text-cyber-green" />,
-      skills: ["Wireshark", "Nmap", "Metasploit", "Burp Suite", "Snort", "Nessus"]
+      title: "Tools & OS",
+      icon: <Terminal className="w-6 h-6 text-yellow-400" />,
+      skills: ["Linux", "Git & GitHub"]
     },
     {
-      title: "Operating Systems",
-      icon: <Database className="w-6 h-6 text-yellow-400" />,
-      skills: ["Kali Linux", "Ubuntu Linux", "Windows Server", "Android"]
+      title: "Security & Networking",
+      icon: <Shield className="w-6 h-6 text-cyber-green" />,
+      skills: ["Networking Basics", "Cyber Security Fundamentals", "Ethical Hacking"]
     },
     {
-      title: "Networking Concepts",
-      icon: <Globe className="w-6 h-6 text-blue-400" />,
-      skills: ["TCP/IP", "OSI Model", "Subnetting", "DNS Security", "VPNs & Tunnels"]
-    },
-    {
-      title: "Certifications",
-      icon: <Award className="w-6 h-6 text-red-400" />,
-      skills: ["CompTIA Security+", "Certified Ethical Hacker (In Progress)", "AWS Certified Cloud Practitioner"]
+      title: "Cloud & DevOps",
+      icon: <Cloud className="w-6 h-6 text-blue-400" />,
+      skills: ["Docker", "AWS", "Cloud Computing", "DevOps Basics"]
     }
   ];
 
@@ -36,11 +31,11 @@ const Skills: React.FC = () => {
       <div className="text-center mb-16">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Skills & <span className="text-cyber-green">Expertise</span></h2>
         <p className="text-gray-400 max-w-2xl mx-auto">
-          A comprehensive breakdown of my technical capabilities and certifications.
+          A robust technical foundation spanning software development, cloud infrastructure, and cybersecurity.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {skillCategories.map((cat, idx) => (
           <div key={idx} className="bg-cyber-gray p-6 rounded-lg border border-gray-800 hover:border-cyber-green/50 transition-all hover:transform hover:-translate-y-1 group">
             <div className="flex items-center gap-3 mb-6">
@@ -52,7 +47,7 @@ const Skills: React.FC = () => {
             <ul className="space-y-3">
               {cat.skills.map((skill, sIdx) => (
                 <li key={sIdx} className="flex items-center text-gray-400 text-sm">
-                  <Shield size={12} className="text-cyber-green mr-2 opacity-50 group-hover:opacity-100" />
+                  <span className="w-1.5 h-1.5 bg-cyber-green rounded-full mr-2 opacity-70 group-hover:opacity-100 group-hover:shadow-[0_0_5px_#00ff41] transition-all"></span>
                   {skill}
                 </li>
               ))}

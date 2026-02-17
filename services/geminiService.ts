@@ -1,8 +1,17 @@
 import { GoogleGenAI, Chat } from "@google/genai";
 
-const apiKey = process.env.API_KEY || '';
+// Safe access to process.env for browser environments where process might not be defined
+const getApiKey = () => {
+  try {
+    return process.env.API_KEY || '';
+  } catch (e) {
+    return '';
+  }
+};
 
-// Fallback if no key is provided in environment (for demo safety, though instructions say assume it's there)
+const apiKey = getApiKey();
+
+// Fallback if no key is provided in environment
 const ai = new GoogleGenAI({ apiKey });
 
 const RAJ_CONTEXT = `
@@ -14,17 +23,14 @@ Here is Raj's profile data to answer user queries:
 - **Education:** B.Tech in Computer Science & Engineering (Specialization in Cyber Security).
 - **Professional Experience:**
     - **Cybersecurity Intern** at **SecureTech Solutions** (Jan 2023 - June 2023).
-        - Responsibilities included weekly vulnerability assessments using Nessus, assisting SOC Level 1 response, and automating log analysis with Python.
 - **Skills:** 
-    - **Programming:** Python, C++, JavaScript, SQL, Bash.
-    - **Security Tools:** Wireshark, Nmap, Burp Suite, Metasploit, Snort, Nessus.
-    - **Operating Systems:** Kali Linux, Ubuntu, Windows Server.
-    - **Networking:** TCP/IP, OSI Model, Subnetting, DNS Security, VPNs.
-    - **Certifications:** CompTIA Security+, CEH (In Progress).
+    - **Programming:** C++, Java, Python, HTML & CSS, JavaScript.
+    - **Tools & OS:** Linux, Git & GitHub.
+    - **Security & Networking:** Networking Basics, Cyber Security Fundamentals, Ethical Hacking.
+    - **Cloud & DevOps:** Docker, AWS, Cloud Computing, DevOps Basics.
 - **Projects:** 
-    1. **Network Intrusion Detection System (NIDS):** Built a system using Python and Snort to detect anomaly traffic. Role: Lead Developer.
-    2. **SecureChat:** An encrypted messaging app using AES-256. Role: Full Stack Engineer.
-    3. **PhishGuard:** A browser extension detecting phishing links using ML. Role: ML Engineer.
+    1. **Cyber Security Lab Practice:** Hands-on practice with Linux tools, networking commands, reconnaissance techniques, and system security concepts.
+    2. **Cloud & DevOps Learning Projects:** Practicing cloud deployment concepts, containerization, and DevOps workflows for scalable infrastructure using AWS and Docker.
 - **Goals:** Seeking opportunities as a Security Analyst, Penetration Tester, or SOC Analyst.
 - **Personality:** Professional, analytical, security-conscious, yet approachable.
 
@@ -52,6 +58,6 @@ export const sendMessageToGemini = async (chat: Chat, message: string): Promise<
     return result.text || "I received an empty response. Please try again.";
   } catch (error) {
     console.error("Gemini API Error:", error);
-    return "Encrypted connection failed. Please try again later.";
+    return "Connection failed. Please check your network or try again later.";
   }
 };

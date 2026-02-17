@@ -1,33 +1,22 @@
 import React from 'react';
-import { Github, ExternalLink, FolderLock, UserCircle } from 'lucide-react';
+import { Github, ExternalLink, FolderLock, UserCircle, Terminal } from 'lucide-react';
 import { Project } from '../types';
 
 const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Network Intrusion Detection System",
-      description: "Built a lightweight NIDS using Python and Snort to detect anomaly traffic patterns and potential intrusions in real-time. The system logs alerts to a secure local database.",
-      role: "Lead Developer",
-      tech: ["Python", "Snort", "Scapy", "SQLite"],
-      github: "#",
+      title: "Cyber Security Lab Practice",
+      description: "Hands-on practice with Linux tools, networking commands, reconnaissance techniques, and system security concepts. Focused on practical application of security fundamentals.",
+      role: "Security Researcher",
+      tech: ["Linux", "Networking", "Security Tools"],
     },
     {
       id: 2,
-      title: "Secure E2E Chat App",
-      description: "A real-time messaging application featuring End-to-End Encryption (E2EE) using AES-256 and RSA key exchange protocols ensuring total privacy between users.",
-      role: "Full Stack Engineer",
-      tech: ["React", "Node.js", "Socket.io", "Web Crypto API"],
-      github: "#"
-    },
-    {
-      id: 3,
-      title: "PhishGuard Extension",
-      description: "Browser extension that analyzes URL patterns and page content in real-time to detect potential phishing attempts using a lightweight Machine Learning model.",
-      role: "ML Engineer",
-      tech: ["JavaScript", "TensorFlow.js", "HTML/CSS"],
-      github: "#",
-      link: "#"
+      title: "Cloud & DevOps Learning Projects",
+      description: "Practicing cloud deployment concepts, containerization, and DevOps workflows for scalable infrastructure. Building resilient systems using modern cloud technologies.",
+      role: "DevOps Engineer",
+      tech: ["AWS", "Docker", "DevOps"],
     }
   ];
 
@@ -46,13 +35,13 @@ const Projects: React.FC = () => {
         </a>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {projects.map((project) => (
           <div key={project.id} className="bg-cyber-gray rounded-xl overflow-hidden border border-gray-800 hover:border-cyber-green transition-all duration-300 group flex flex-col shadow-lg">
             <div className="h-48 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
                {/* Abstract tech background */}
                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-400 via-gray-900 to-black"></div>
-               <FolderLock className="text-gray-600 w-16 h-16 group-hover:text-cyber-green transition-colors duration-500 transform group-hover:scale-110" />
+               <Terminal className="text-gray-600 w-16 h-16 group-hover:text-cyber-green transition-colors duration-500 transform group-hover:scale-110" />
             </div>
             
             <div className="p-6 flex-1 flex flex-col">
@@ -85,6 +74,9 @@ const Projects: React.FC = () => {
                   <a href={project.link} className="text-gray-400 hover:text-white transition-colors flex items-center gap-1 text-sm font-mono hover:underline decoration-blue-500">
                     <ExternalLink size={16} /> Live Demo
                   </a>
+                )}
+                {!project.github && !project.link && (
+                  <span className="text-gray-600 text-sm font-mono italic">Internal / Lab Project</span>
                 )}
               </div>
             </div>
