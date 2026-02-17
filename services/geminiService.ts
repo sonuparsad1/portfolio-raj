@@ -47,7 +47,7 @@ Here is Raj's profile data to answer user queries:
 - **Name:** Raj Hansh
 - **Education:** B.Tech in Computer Science & Engineering (Specialization in Cyber Security).
 - **Professional Experience:**
-    - **Cybersecurity Intern** at **SecureTech Solutions** (Jan 2023 - June 2023).
+    - **Summer Training in C Programming** at **CSE Pathsala**. Focus on data structures, algorithms, and memory management.
 - **Skills:** 
     - **Programming:** C++, Java, Python, HTML & CSS, JavaScript.
     - **Tools & OS:** Linux, Git & GitHub.

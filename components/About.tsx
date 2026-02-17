@@ -24,8 +24,7 @@ const About: React.FC = () => {
     "Ethical Hacking",
     "Cloud Security",
     "Digital Forensics"
-  ],
-  "certification": "CompTIA Security+"
+  ]
 }`}</code>
             </pre>
           </div>

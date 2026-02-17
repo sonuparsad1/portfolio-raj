@@ -6,14 +6,14 @@ const ExperienceSection: React.FC = () => {
   const experiences: Experience[] = [
     {
       id: 1,
-      title: "Cybersecurity Intern",
-      company: "SecureTech Solutions",
-      period: "Jan 2023 - June 2023",
+      title: "Summer Training in C Programming",
+      company: "CSE Pathsala",
+      period: "June 2023 - July 2023",
       description: [
-        "Conducted weekly vulnerability assessments on internal networks using Nessus and OpenVAS.",
-        "Assisted the SOC team in monitoring SIEM alerts and performing Level 1 incident response.",
-        "Developed Python scripts to automate log analysis, reducing manual review time by 40%.",
-        "Participated in red team exercises to simulate external attacks and identify security gaps."
+        "Mastered fundamental concepts of C programming, including pointers, structures, and file handling.",
+        "Implemented data structures like linked lists, stacks, and queues from scratch to understand memory management.",
+        "Solved complex algorithmic problems to enhance logic building and problem-solving capabilities.",
+        "Developed a console-based mini-project to demonstrate practical application of C language concepts."
       ]
     }
   ];
