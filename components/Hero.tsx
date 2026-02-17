@@ -3,9 +3,25 @@ import { Terminal, Lock, ChevronDown, Github, Linkedin, Mail } from 'lucide-reac
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="min-h-screen flex flex-col justify-center items-center relative pt-16">
+    <section id="home" className="min-h-screen flex flex-col justify-center items-center relative pt-20 pb-10">
       
-      <div className="text-center z-10 max-w-4xl px-4">
+      <div className="text-center z-10 max-w-4xl px-4 flex flex-col items-center">
+        
+        {/* Profile Image */}
+        <div className="relative mb-8 group">
+            <div className="absolute -inset-1 bg-gradient-to-r from-cyber-green to-blue-600 rounded-full blur opacity-50 group-hover:opacity-100 transition duration-500"></div>
+            {/* Note: Ensure a file named 'profile.jpg' exists in your public/root folder */}
+            <img 
+              src="/profile.jpg" 
+              alt="Raj Hansh" 
+              className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-2 border-cyber-dark ring-2 ring-cyber-green/50 shadow-2xl bg-cyber-gray"
+              onError={(e) => {
+                const target = e.target as HTMLImageElement;
+                target.src = "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=1780&auto=format&fit=crop";
+              }}
+            />
+        </div>
+
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyber-gray border border-cyber-green/30 text-cyber-green text-xs font-mono mb-6">
           <span className="relative flex h-2 w-2">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
@@ -41,13 +57,13 @@ const Hero: React.FC = () => {
         </div>
 
         <div className="flex justify-center gap-6 text-gray-400">
-          <a href="#" className="hover:text-cyber-green transition-colors hover:scale-110 transform duration-200">
+          <a href="https://github.com/rajhansh23" target="_blank" rel="noopener noreferrer" className="hover:text-cyber-green transition-colors hover:scale-110 transform duration-200">
             <Github size={24} />
           </a>
-          <a href="#" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">
+          <a href="https://www.linkedin.com/in/rajhansh94/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors hover:scale-110 transform duration-200">
             <Linkedin size={24} />
           </a>
-          <a href="mailto:raj@example.com" className="hover:text-red-400 transition-colors hover:scale-110 transform duration-200">
+          <a href="mailto:rhansh33@gmail.com" className="hover:text-red-400 transition-colors hover:scale-110 transform duration-200">
             <Mail size={24} />
           </a>
         </div>

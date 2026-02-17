@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
           </div>
           <h2 className="text-3xl md:text-4xl font-bold text-white">Featured <span className="text-cyber-green">Projects</span></h2>
         </div>
-        <a href="#" className="hidden md:flex items-center gap-2 text-cyber-green font-mono hover:text-white transition-colors mt-4 md:mt-0">
+        <a href="https://github.com/rajhansh23" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center gap-2 text-cyber-green font-mono hover:text-white transition-colors mt-4 md:mt-0">
           View all on GitHub <Github size={16} />
         </a>
       </div>
@@ -89,7 +89,7 @@ const Projects: React.FC = () => {
       </div>
       
       <div className="mt-8 text-center md:hidden">
-         <a href="#" className="inline-flex items-center gap-2 text-cyber-green font-mono hover:text-white transition-colors">
+         <a href="https://github.com/rajhansh23" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-cyber-green font-mono hover:text-white transition-colors">
           View all on GitHub <Github size={16} />
         </a>
       </div>
